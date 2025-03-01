@@ -9,6 +9,6 @@ target("ExampleStaticLibrary")
     set_kind("static")
     add_files("src/*.cpp")
     add_includedirs("include", { public = true })
-    if has_config("build_example") then
-        add_packages("skyrim-commonlib-ae")
+    if has_config("commonlib") then
+        add_packages(get_config("commonlib"), {public = true})
     end
