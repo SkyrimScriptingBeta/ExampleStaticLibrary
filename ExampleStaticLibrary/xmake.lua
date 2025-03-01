@@ -10,9 +10,6 @@ end
 commonlib_package = get_config("commonlib")
 if commonlib_package then
     print("[Building] Using CommonLib package: " .. commonlib_package)
-
-    -- Just for testing...
-    add_requires(commonlib_package)
 end
 
 target("ExampleStaticLibrary")
@@ -22,3 +19,4 @@ target("ExampleStaticLibrary")
     if has_config("build_example") then
         add_packages(commonlib_package, { public = true })
     end
+    add_includedirs(get_package(commonlib_package):installdir("include"))
