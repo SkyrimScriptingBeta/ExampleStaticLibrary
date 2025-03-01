@@ -1,12 +1,15 @@
-mod_info = {
-    name = "Hello Plugin",
-    version = "0.0.1",
-    author = "Mrowr Purr",
-    email = "mrowr.purr@gmail.com",
-    mod_files = {"Scripts"}
-}
+-- xmake config --build_example=y
 
-skyrim_versions = {"ae", "se", "vr", "ng"}
+option("build_example")
+    set_description("Enable development tools (not installed with the package)")
+    set_default(false) -- This ensures it is OFF unless explicitly enabled
+option_end()
 
-includes("papyrus.lua")
-includes("skse.lua")
+includes("ExampleStaticLibrary/xmake.lua")
+
+if has_config("build_example") then
+    print("Building example")
+    includes("skse.lua")
+    -- includes("papyrus.lua")
+    includes("skse.lua")
+end

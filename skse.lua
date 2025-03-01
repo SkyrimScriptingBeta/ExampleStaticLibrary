@@ -2,7 +2,15 @@ add_rules("mode.debug", "mode.release")
 
 set_languages("c++23")
 
-add_repositories("SkyrimScripting https://github.com/SkyrimScripting/Packages.git")
+mod_info = {
+    name = "Test plugin for ExampleStaticLibrary",
+    version = "0.0.1",
+    author = "Mrowr Purr",
+    email = "mrowr.purr@gmail.com",
+    mod_files = {"Scripts"}
+}
+
+skyrim_versions = {"ae"}
 
 mods_folders = os.getenv("SKYRIM_MODS_FOLDERS")
 
@@ -32,4 +40,5 @@ for _, game_version in ipairs(skyrim_versions) do
             author = mod_info.author,
             email = mod_info.email
         })
+        add_deps("ExampleStaticLibrary")
 end
