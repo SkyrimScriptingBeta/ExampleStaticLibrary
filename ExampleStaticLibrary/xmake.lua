@@ -5,6 +5,10 @@ if has_config("build_example") then
     add_requires("skyrim-commonlib-ae")
 end
 
+if has_config("commonlib")
+    print("[Building] Using CommonLib package: " .. get_config("commonlib"))
+end
+
 target("ExampleStaticLibrary")
     set_kind("static")
     add_files("src/*.cpp")
