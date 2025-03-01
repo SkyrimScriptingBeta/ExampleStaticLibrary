@@ -5,7 +5,7 @@ if has_config("build_example") then
     add_requires("skyrim-commonlib-ae")
 end
 
-if has_config("commonlib")
+if has_config("commonlib") then
     print("[Building] Using CommonLib package: " .. get_config("commonlib"))
 end
 
