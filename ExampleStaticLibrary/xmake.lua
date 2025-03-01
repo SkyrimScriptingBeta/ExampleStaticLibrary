@@ -10,6 +10,9 @@ end
 commonlib_package = get_config("commonlib")
 if commonlib_package then
     print("[Building] Using CommonLib package: " .. commonlib_package)
+
+    -- Just for testing...
+    add_requires(commonlib_package)
 end
 
 target("ExampleStaticLibrary")
